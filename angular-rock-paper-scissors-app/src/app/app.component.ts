@@ -29,11 +29,12 @@ export class AppComponent {
 };
 
   displayedColumns = ['Player1Choice', 'Player2Choice', 'Result'];
-  displayedColumnsTotal = ['Total P1 Wins', 'Total P2 Wins', 'Total Draws', 'Total Games'];
 
   totalGamesPlayed: number = 0;
   isTotalInfoDisplayed = false;
 
+  //Session Id is generated client side when app user opens app in browser
+  //this is sent to the server in order to track the session
   sessionId = '';
 
 
@@ -49,6 +50,8 @@ export class AppComponent {
     debugger;
     console.log('Filling Data Source: ' + data);
     this.dataSource = data;
+   
+    this.totalGamesPlayed = data.length;
   }
 );
 
@@ -56,23 +59,12 @@ this.gameService.getOverAllGameScores().subscribe(
     data => {
     debugger;
     console.log('Filling total Data Source: ' + data);
-    this.dataSourceTotal = data;
+    if(data !==null){
+      this.dataSourceTotal = data;
+    } 
   }
 );
-
 }
-
- createUUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
-
-
- 
-
-
 
   playRandomGame() {
     let game: GameData = {
@@ -83,42 +75,34 @@ this.gameService.getOverAllGameScores().subscribe(
     };
     this.gameService.playRandomGameService(game).subscribe((response: any) => {
       console.log(response);
+      this.updateAllGameData()
     });
-    this.updateAllGameData()
   }
 
   updateAllGameData(){
       this.tableRefresh();
-      this.gameService.updateTotalGamesPlayed().subscribe((response: any) => {
-      console.log(response);
-    });
   }
 
 
-// INCORRECT
   resetGameData(){
-    //   let overall: OverallGame = {
-    //     totalRoundsPlayed: this.totalGamesPlayed,
-    //     totalPlayer1Wins: 0,
-	  //     totalPlayer2Wins: 0,
-	  //     totalDraws: 0
-    // };
-    
-    // this.gameService.resetGameDataService(overall).subscribe((response: any) => {
-    //   console.log('Resetting game' + response);
-    // });
-    // this.updateAllGameData();
-
     this.gameService.clearSessionDataService(this.sessionId).subscribe((response: any) => {
         console.log('Clearing session data' + response);
+        this.totalGamesPlayed = 0;
+        this.updateAllGameData();
       });
-      this.updateAllGameData();
   }
 
 
 
   showTotalsInfo(){
     this.isTotalInfoDisplayed = !this.isTotalInfoDisplayed;
+  }
+
+  createUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
   }
 
 }

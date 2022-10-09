@@ -99,11 +99,12 @@
 
 
 
+ 
 
   <div class="example-button-row">
     <button (click)="playRandomGame()" mat-stroked-button matTooltip="Plays a random round">Play Round</button>
     <button (click)="resetGameData()" mat-stroked-button matTooltip="Will set round count for user to 0 and also clean the table">Restart Game</button>
-    <span>Game Counter: </span><span>{{dataSourceTotal.totalRoundsPlayed}}</span>
+    <span>Game Counter for Current Session: </span><span>{{totalGamesPlayed}}</span>
   </div>
 
   <div>
