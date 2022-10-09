@@ -35,6 +35,7 @@ export class AppComponent {
 
   //Session Id is generated client side when app user opens app in browser
   //this is sent to the server in order to track the session
+  // this means all users will have their own correct 'games played for this session' counter
   sessionId = '';
 
 

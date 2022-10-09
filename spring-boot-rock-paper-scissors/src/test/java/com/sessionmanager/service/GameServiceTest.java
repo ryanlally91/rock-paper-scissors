@@ -100,27 +100,6 @@ public class GameServiceTest {
 		
 		assertEquals(result.get("123").get(0).getResult(), "Draw");
 	}
-	
-//	@Test
-//	void getOverallGameScoresTest(){
-//		Mockito.when(sessionRegistry.getOverallGameScores(Mockito.any(),Mockito.any(),Mockito.any(),Mockito.any())).thenReturn(response);
-//
-//		return repo.getOverallGameScores();
-//	}
-//	
-//	@Test
-//	void getTotalRoundsPlayedTest(){
-//		Mockito.when(sessionRegistry.getTotalRoundsPlayed(Mockito.any(),Mockito.any(),Mockito.any(),Mockito.any())).thenReturn(response);
-//
-//		return repo.getTotalRoundsPlayed();
-//	}
-//	
-//	@Test
-//	void resetGameDataTest(){
-//		Mockito.when(repo.resetGameData(Mockito.any(),Mockito.any(),Mockito.any(),Mockito.any())).thenReturn();
-//
-//		 return repo.resetGameData();
-//	}
 
 	@Test
 	void deleteGamesBySessionIdTest() {
