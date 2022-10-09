@@ -2,13 +2,13 @@ package com.sessionmanager.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.sessionmanager.dto.GameDto;
 import com.sessionmanager.entity.OverallGame;
 
 @Repository
 public class GameInMemoryRepo {
 	
 	//Note: Static - The static variable gets memory only once in the class area at the time of class loading.
+	//Overall_game serves as our count of all games played across all instances of the application
 	private static final OverallGame OVERALL_GAME = new OverallGame(0,0,0,0);
 	
 	
@@ -44,6 +44,7 @@ public class GameInMemoryRepo {
 		OVERALL_GAME.setTotalRoundsPlayed(0);
 	}
 
+	// not necessary unless we want to permanently delete all totals info across all instances up app running
 	public OverallGame resetGameData() {
 		OVERALL_GAME.setTotalDraws(0);
 		OVERALL_GAME.setTotalPlayer1Wins(0);

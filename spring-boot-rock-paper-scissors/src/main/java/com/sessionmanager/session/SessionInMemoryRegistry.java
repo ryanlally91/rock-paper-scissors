@@ -16,6 +16,7 @@ import com.sessionmanager.game.logic.Move;
 public class SessionInMemoryRegistry {
 
 	//Note: Static - The static variable gets memory only once in the class area at the time of class loading.
+	//This is essentially our in-memory DB. we use a key-value system to store all games for a given sessionId/user
 	private static final HashMap<String, ArrayList<Game>> GAME_SESSIONS = new HashMap<>();
 
 	public ArrayList<Game> findGamesBySessionId(String sessionId) {
@@ -28,6 +29,7 @@ public class SessionInMemoryRegistry {
 
 	public ResponseDto addGameSession(String sessionId, Move player1Move, Move player2Move, String result) {
 
+		//Creating session IDs in service layer here simply so we can use Postman to test this
 		ArrayList<Game> gameSession;
 		if(sessionId.isEmpty()||sessionId==null) {
 			sessionId = generateSessionId();
@@ -50,7 +52,8 @@ public class SessionInMemoryRegistry {
 						)
 				);
 	}
-
+	
+	//We can 'clear the session' by deletingall games associated with that sessionId
 	public String deleteGamesBySessionId(String sesssionId) {
 		GAME_SESSIONS.remove(sesssionId);
 		return sesssionId;
