@@ -11,7 +11,7 @@ public class GamePlay {
 		
 	public GameDto playRandomGame(GameDto randomGame) {
 		randomGame.setPlayer1Choice(generateRandomMove());
-		randomGame.setPlayer2Choice(Move.ROCK);
+		randomGame.setPlayer2Choice(Move.ROCK);// one player always chooses rock
 		randomGame.setResult(determineWinner(randomGame.getPlayer1Choice(),randomGame.getPlayer2Choice()));
 		return randomGame;
 	}

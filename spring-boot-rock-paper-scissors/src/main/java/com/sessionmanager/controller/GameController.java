@@ -2,6 +2,7 @@ package com.sessionmanager.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,7 +45,7 @@ public class GameController {
 	}
 	
 	@RequestMapping("/get-all-sessions")
-	public HashMap<String, ArrayList<Game>> getAllSessions(){
+	public ConcurrentHashMap<String, ArrayList<Game>> getAllSessions(){
 		return service.getAllSessions();
 	}
 	

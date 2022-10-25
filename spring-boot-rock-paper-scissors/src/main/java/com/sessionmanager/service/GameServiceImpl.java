@@ -2,6 +2,8 @@ package com.sessionmanager.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,13 +35,15 @@ public class GameServiceImpl implements GameService{
 		return sessionRegistry.addGameSession(gameDto.getSessionId(), gameDto.getPlayer1Choice(), gameDto.getPlayer2Choice(), gameDto.getResult());
 	}
 	
+
+	
 	@Override
 	public ArrayList<Game> findGamesBySessionId(String sesssionId){
 		return sessionRegistry.findGamesBySessionId(sesssionId);
 	}
 	
 	@Override
-	public HashMap<String, ArrayList<Game>> getAllSessions(){
+	public ConcurrentHashMap<String, ArrayList<Game>> getAllSessions(){
 		return sessionRegistry.getAllSessions();
 	}
 	

@@ -27,6 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 @WebMvcTest(GameController.class)
 public class GameControllerTest {
@@ -79,7 +80,7 @@ public class GameControllerTest {
 	
 	@Test
 	void getAllSessionsTest() throws Exception {
-		HashMap<String, ArrayList<Game>> mockResponse = new HashMap<>();
+		ConcurrentHashMap<String, ArrayList<Game>> mockResponse = new ConcurrentHashMap<>();
 		ArrayList<Game> gamesList = new ArrayList<>();
 
 		Game game = new Game();
@@ -98,7 +99,7 @@ public class GameControllerTest {
 	
 	@Test
 	void deleteSessionByIdTest() throws Exception {
-		HashMap<String, ArrayList<Game>> mockResponse = new HashMap<>();
+		ConcurrentHashMap<String, ArrayList<Game>> mockResponse = new ConcurrentHashMap<>();
 		ArrayList<Game> gamesList = new ArrayList<>();
 
 		Game game = new Game();

@@ -22,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -45,7 +46,7 @@ public class GameServiceTest {
     private GameDto gameDto;
     private Game game;
     private ResponseDto response;
-	private HashMap<String, ArrayList<Game>> responseHash;
+	private ConcurrentHashMap<String, ArrayList<Game>> responseHash;
 
     
     @BeforeEach 
@@ -61,7 +62,7 @@ public class GameServiceTest {
 		response = new ResponseDto();
 		response.setSessionId("123");
 		
-		responseHash = new HashMap<String, ArrayList<Game>>();
+		responseHash = new ConcurrentHashMap<String, ArrayList<Game>>();
 		responseHash.put("123", games);
 
     }
@@ -95,7 +96,7 @@ public class GameServiceTest {
 		
 		Mockito.when(sessionRegistry.getAllSessions()).thenReturn(responseHash);
 
-		HashMap<String, ArrayList<Game>> result = gameService.getAllSessions();
+		ConcurrentHashMap<String, ArrayList<Game>> result = gameService.getAllSessions();
 
 		
 		assertEquals(result.get("123").get(0).getResult(), "Draw");

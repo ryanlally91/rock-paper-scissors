@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Repository;
 
@@ -17,13 +18,13 @@ public class SessionInMemoryRegistry {
 
 	//Note: Static - The static variable gets memory only once in the class area at the time of class loading.
 	//This is essentially our in-memory DB. we use a key-value system to store all games for a given sessionId/user
-	private static final HashMap<String, ArrayList<Game>> GAME_SESSIONS = new HashMap<>();
+	private static final ConcurrentHashMap<String, ArrayList<Game>> GAME_SESSIONS = new ConcurrentHashMap<>();
 
 	public ArrayList<Game> findGamesBySessionId(String sessionId) {
 		return GAME_SESSIONS.get(sessionId);
 	}
 
-	public HashMap<String, ArrayList<Game>> getAllSessions(){
+	public ConcurrentHashMap<String, ArrayList<Game>> getAllSessions(){
 		return GAME_SESSIONS;
 	}
 
