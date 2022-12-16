@@ -29,3 +29,54 @@
 table {
   width: 100%;
 }
+
+.rps-footer{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+background-color: var(--rps-core-background);
+position: fixed;
+width: 100%;
+}
+
+.rps-logo{
+  width: 189px;
+  height: 61px;
+  padding: 15px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  /* .rps-logo-img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    box-sizing: border-box;
+  } */
+}
+
+  .rps-logo-img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    box-sizing: border-box;
+  }
+
+.rps-central-logo{
+  padding: 15px;
+  padding-right: 30px;
+}
+
+.rps-terms{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* span{
+    font-size: 9px;
+    font-family: 'sans-serif';
+    letter-spacing: 0;
+    line-height: 18px;
+    color: rgb(218, 214, 214);
+  } */
+}
+
+
