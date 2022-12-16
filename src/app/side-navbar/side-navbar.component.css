@@ -1,0 +1,69 @@
+.item:hover{
+    background-color: #10183f;
+}
+
+.item:focus{
+    background-color: #363255;
+}
+
+.active-list-item{
+    background: #363255;
+}
+
+.active-list-item .mat-icon{
+    color: white;
+}
+
+.rps-central{
+    width: 106px;
+    color: #ffffff;
+    font-family: 'PT Sans', 'sans-serif';
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    line-height: 15.6px;
+    display: inline-block;
+    padding-right: 60px;
+}
+
+.material-icons{
+    height: 20px;
+    width: 20px;
+    fill: solid;
+    color: var(--rps-core-brand);
+    padding-left: 5px;
+}
+
+.burger{
+    height: 25px;
+    width: 25px;
+    color: #5369bf;
+}
+
+.side{
+    background-color: #060918;
+}
+
+.rps-central-icon{
+    height: 20px;
+    width: 20px;
+    padding-left: 5px;
+}
+
+.sidenav-text{
+    padding-left: 20px;
+    padding-top: 3px;
+    height: 34px;
+    width: 180px;
+    color: #ffffff;
+    font-family: 'PT Sans', 'sans-serif';
+    font-size: 14px;
+    letter-spacing: 0.52px;
+    line-height: 16.6px;
+}
+
+.rps-logo{
+width: 35px;
+border-radius: 50%;
+margin-top: 2px;
+}

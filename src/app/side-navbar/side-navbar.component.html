@@ -1,0 +1,17 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav [fixedInViewport]="true" class="side" #sidenav opened mode="side" autosize>
+        <mat-nav-list>
+            <a mat-list-item>
+                <p *ngIf="showFiller" class="rps-central">RPS Central</p>
+                <mat-icon 
+                title="Expand/Collapse Menu" 
+                class="burger" 
+                (click)="showFiller = !showFiller">
+                {{ showFiller ? 'menu_open' : 'menu'}}
+            </mat-icon>
+            </a>
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+</mat-sidenav-container>

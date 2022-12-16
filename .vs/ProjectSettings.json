@@ -1,0 +1,11 @@
+"editor.tokenColorCustomizations": {
+    "[Monokai]": {
+        "comments": "#229977"
+    },
+    "[*Dark*]": {
+        "variables": "#229977"
+    },
+    "[Abyss][Red]": {
+        "keywords": "#f00"
+    }
+}
